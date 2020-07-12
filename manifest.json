@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "TST-CascasdingClose",
+  "version": "0.1.0",
+
+  "applications": {
+      "gecko": {
+          "id": "tst-cascadingclose@comp.moe"
+      }
+  },
+
+  "description": "Extends TreeStyleTab to close all tabs above or below the active tab in the current window.",
+
+  "background": {
+      "scripts": ["cascadingClose.js"]
+  },
+
+// Add after proof-of-concept
+//  "options_ui": {
+//      "page": "options.html",
+//      "browser_style": true
+//  },
+
+  "permissions": [
+      "storage"
+  ]
+}
