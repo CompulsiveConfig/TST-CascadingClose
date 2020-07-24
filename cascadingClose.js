@@ -19,9 +19,24 @@ async function getTrimmedList(windowList) {
 
     const trimmedList = await windowList.then((tabs) =>
       tabs.slice(activeTabIndex));
-    
+   
+    trimmedList.shift();
+
     console.log(trimmedList);
+    
+    return trimmedList; 
 }
+
+async function closeWindows(windowList) {
+    const closeList = await windowList; 
+
+    for (let i = 0, l = closeList.length; i < l; i++) {
+        browser.tabs.remove(closeList[i].id);
+    }
+}
+    
+    
+
 
 
 /* async function getTabsToClose(windowList, activeTabIndex) { */
