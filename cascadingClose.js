@@ -1,3 +1,5 @@
+'use strict';
+
 async function getTSTWindowList() {
     const windowResult = await browser.runtime.sendMessage(TST_ID, {
       type:   'get-tree',
@@ -53,7 +55,6 @@ async function closeWindows(windowList) {
    http://github.com/piroor/treestyletab/blob/trunk/doc/boilerplate-helper-background.js
 */
 
-'use strict';
 
 const TST_ID = 'treestyletab@piro.sakura.ne.jp';
 
