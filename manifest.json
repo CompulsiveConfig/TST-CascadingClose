@@ -11,6 +11,10 @@
 
   "description": "Extends TreeStyleTab to close all tabs above or below the active tab in the current window.",
 
+  "icons": {
+      "48": "icons/placeholder48.png"
+  },
+
   "background": {
       "scripts": ["cascadingClose.js"]
   },
