@@ -1,3 +1,33 @@
+async function getTSTWindowList() {
+    const windowResult = await browser.runtime.sendMessage(TST_ID, {
+      type:   'get-tree',
+      window: await browser.windows.getCurrent().id,
+      tabs:   '*'
+    })
+    console.log(windowResult);
+    return windowResult;
+}
+
+async function getActiveTSTTabIndex(windowList) {
+    const activeTabIndex = await windowList.then((tabs) =>
+      tabs.find(element =>
+      element.active === true
+    )).then((activetab) =>
+      activetab["index"]
+    );
+    console.log(activeTabIndex);
+
+    const trimmedList = await windowList.then((tabs) =>
+      tabs.slice(activeTabIndex));
+    
+    console.log(trimmedList);
+}
+
+
+/* async function getTabsToClose(windowList, activeTabIndex) { */
+    // let tst =
+/* } */
+
 /*
  This is a boilerplate to implement a helper addon for Tree Style Tab
  based on its API.
