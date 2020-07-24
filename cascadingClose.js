@@ -8,7 +8,7 @@ async function getTSTWindowList() {
     return windowResult;
 }
 
-async function getActiveTSTTabIndex(windowList) {
+async function getTrimmedList(windowList) {
     const activeTabIndex = await windowList.then((tabs) =>
       tabs.find(element =>
       element.active === true
