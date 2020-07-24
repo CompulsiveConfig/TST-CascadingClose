@@ -11,16 +11,13 @@ async function getTSTWindowList() {
 }
 
 async function getTrimmedList(windowList) {
-    const activeTabIndex = await windowList.then((tabs) =>
-      tabs.find(element =>
-      element.active === true
-    )).then((activetab) =>
-      activetab["index"]
-    );
+    const fullList = await windowList;
+    const activeTabIndex = fullList.find(element =>
+      element.active === true)["index"];
+
     console.log(activeTabIndex);
 
-    const trimmedList = await windowList.then((tabs) =>
-      tabs.slice(activeTabIndex));
+    const trimmedList = fullList.slice(activeTabIndex);
    
     trimmedList.shift();
 
@@ -37,7 +34,13 @@ async function closeWindows(windowList) {
     }
 }
     
-    
+function executeClose() {
+    getTSTWindowList().then((initialList) =>
+        getTrimmedList(initialList).then((processedList) =>
+            closeWindows(processedList)
+        )
+    );
+}
 
 
 
@@ -120,4 +123,6 @@ browser.runtime.onMessageExternal.addListener((message, sender) => {
       // ...
     }
   }
-});
+})
+
+browser.browserAction.onClicked.addListener(executeClose);
