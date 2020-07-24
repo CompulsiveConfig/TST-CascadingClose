@@ -18,40 +18,21 @@ async function registerToTST() {
       type: 'register-self',
 
       // Basic information of your addon.
-      name:  browser.i18n.getMessage('extensionName'),
-      icons: browser.runtime.getManifest().icons,
+      // name:  browser.i18n.getMessage('tst-cascadingclose@comp.moe'),
+      // icons: browser.runtime.getManifest().icons,
 
       // The list of listening message types. (optional)
       // Available message types are listed at:
       // https://github.com/piroor/treestyletab/wiki/API-for-other-addons#notified-message-types
       listeningTypes: [
         'wait-for-shutdown', // This is required to trigger teardown process for this addon on TST side.
-        // ...
-      ],
+        'ready'
+      ]
 
-      // Extra style rules applied in the sidebar. (optional)
-      style: `
-      `,
-
-      // Extra permissions to receive tab information via TST's API. (optional)
-      // Available permissions are listed at:
-      // https://github.com/piroor/treestyletab/wiki/API-for-other-addons#extra-permissions
-      permissions: [
-        // ...
-      ],
-
-      /*
-      // Subpanel (optional)
-      // https://github.com/piroor/treestyletab/wiki/SubPanel-API
-      subPanel: {
-        title: browser.i18n.getMessage('extensionName'),
-        url:   `moz-extension://${location.host}/path/to/panel.html`
-      },
-      */
     });
   }
   catch(_error) {
-    // TST is not available
+      console.log("Could not register to TST")
   }
 }
 registerToTST();
