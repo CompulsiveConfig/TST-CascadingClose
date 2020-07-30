@@ -43,10 +43,12 @@ function executeClose() {
 }
 
 
-
-/* async function getTabsToClose(windowList, activeTabIndex) { */
-    // let tst =
-/* } */
+function handleMessage(request, sender, sendResponse) {
+  console.log("Message from the content script: " +
+    request.greeting);
+    executeClose();
+  sendResponse({response: "executeClose executed"});
+}
 
 /*
  This is a boilerplate to implement a helper addon for Tree Style Tab
@@ -125,4 +127,4 @@ browser.runtime.onMessageExternal.addListener((message, sender) => {
   }
 })
 
-browser.browserAction.onClicked.addListener(executeClose);
+browser.runtime.onMessage.addListener(handleMessage);
