@@ -22,7 +22,7 @@ function listenForClicks() {
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("redbutton")) {
       var sending = browser.runtime.sendMessage({
-        greeting: "Greeting from the content script"
+        command: "closetabs"
       });
       sending.then(handleResponse, handleError);  
         }
