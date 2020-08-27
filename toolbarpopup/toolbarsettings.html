@@ -15,19 +15,25 @@
             }
             .redbutton {
                 cursor: pointer;
+                margin: auto;
                 position: relative;
+                background-color: #e07777;
                 display: block;
-                align-items: center;
-                border-radius: 50%;
-                width:100%;
-                height: 14em
-            }
-            .buttonbase {
-                margin-bottom: 3em;
-                padding: 0;
+                width: 100%;
+                font-size: 12em;
+                text-align: center;
+                font-weight: bolder;
             }
 
-            .bottombutton {
+            .redbutton:hover {
+                background-color: #ff0000ff;
+            }
+
+            .buttonbase {
+                margin-bottom: 3em;
+            }
+
+            .optionsbutton {
                   cursor: pointer;
                   text-align: center;
                   display: block;
@@ -39,12 +45,12 @@
 
     <div class="panel-section panel-section-list">
         <div class="panel-section buttonmessage">Press the red button below to close [TABS]</div>
-        <button class="buttonbase">
-            <img class="redbutton" src="redbutton.svg">
-        </button>
+        <div class="buttonbase">
+            <div class="redbutton">X</div>
+        </div>
     </div>
 
     <footer class="panel-section panel-section-footer">
-      <button class="bottombutton">Options</button>
+      <button class="optionsbutton">Options</button>
     </footer>
 </html>
