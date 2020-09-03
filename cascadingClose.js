@@ -44,10 +44,18 @@ function executeClose() {
 
 
 function handleMessage(request, sender, sendResponse) {
-  console.log("Message from the content script: " +
-    request.greeting);
-    executeClose();
-  sendResponse({response: "executeClose executed"});
+    console.log("Message from the content script: " +
+    request.command);
+  
+  switch (request.command) {
+    case "closetabs":
+        executeClose();
+        sendResponse({response: "executeClose executed"});
+        break;
+    default:
+        sendResponse({response: "Command not found"});
+        break;
+    }
 }
 
 /*

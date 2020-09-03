@@ -3,6 +3,8 @@
  * the content script in the page.
  */
 
+const buttonClass = "redbutton";
+
 function notifyBackgroundPage(e) {
   var sending = browser.runtime.sendMessage({
     greeting: "Greeting from the content script"
@@ -20,9 +22,9 @@ function handleError(error) {
 
 function listenForClicks() {
   document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("redbutton")) {
+    if (e.target.classList.contains(buttonClass)) {
       var sending = browser.runtime.sendMessage({
-        greeting: "Greeting from the content script"
+        command: "closetabs"
       });
       sending.then(handleResponse, handleError);  
         }

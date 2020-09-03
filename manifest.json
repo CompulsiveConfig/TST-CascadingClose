@@ -11,15 +11,20 @@
 
   "description": "Extends TreeStyleTab to close all tabs above or below the active tab in the current window.",
 
+  "options_ui": {
+      "page": "options/options.html", 
+      "browser_style": true
+  },
+
   "icons": {
-      "48": "icons/placeholder48.png"
+      "48": "icons/CCC_icon.svg"
   },
 
   "browser_action": {
-    "default_icon": "icons/placeholder48.png",
+    "default_icon": "icons/CCC_icon.svg",
     "theme_icons": [{
-        "light": "icons/placeholder48.png",
-        "dark": "icons/placeholder48.png",
+        "light": "icons/CCC_icon.svg",
+        "dark": "icons/CCC_icon.svg",
         "size": 48
     }],
     "default_title": "Cascading Close",
